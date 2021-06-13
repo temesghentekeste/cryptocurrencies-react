@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { WaveLoading } from 'react-loadingg';
 
 import { getCryptocurrenciesAsync } from '../../redux/cryptocurrenciesSlice';
 import styles from './Cryptocurrencies.module.css';
@@ -17,7 +18,7 @@ const Cryptocurrencies = () => {
   }, [dispatch]);
 
   if (loading || loading === null || loading === undefined) {
-    return <h1>Loading...</h1>;
+    return <WaveLoading />;
   }
 
   return (
