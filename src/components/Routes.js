@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import CryptoQuote from '../containers/CryptoQuote/CryptoQuote';
+import CryptoQuote from '../containers/CryptoQuote';
 import App from './App';
 import Navbar from './Navbar';
 
