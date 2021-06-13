@@ -13,15 +13,14 @@ const Cryptocurrencies = () => {
     (state) => state.cryptocurrencies,
   );
 
-  console.log(filter);
-
   let filteredCryptoCurrencies;
+  console.log('Filter:', filter);
 
   useEffect(() => {
     dispatch(getCryptocurrenciesAsync());
   }, [dispatch]);
 
-  if (filter === 'All') {
+  if (filter === 'All' || !filter) {
     filteredCryptoCurrencies = cryptoCurrencies;
   }
 

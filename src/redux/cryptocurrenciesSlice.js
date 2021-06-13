@@ -27,6 +27,8 @@ const cryptocurrenciesSlice = createSlice({
   reducers: {
     CHANGE_FILTER: (state, action) => ({
       filter: action.payload,
+      loading: state.loading,
+      cryptoCurrencies: state.cryptoCurrencies,
     }),
   },
   extraReducers: {
