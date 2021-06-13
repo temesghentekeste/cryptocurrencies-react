@@ -12,10 +12,8 @@ const initialState = {
 
 export const getCryptocurrencyQuoteAsync = createAsyncThunk(
   'cryptocurrencies/getCryptocurrencyQuoteAsync',
-  async (key) => {
-    const response = await axios.get(
-      `${specificCryptoURL}/${key}?apikey=e708af923b22da2b8687e0d8e1255fb6`
-    );
+  async (id) => {
+    const response = await axios.get(`${specificCryptoURL}/${id}`);
     const cryptoQuote = await response.data;
     return cryptoQuote;
   }
