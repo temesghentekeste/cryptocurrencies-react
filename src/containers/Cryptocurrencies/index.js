@@ -22,6 +22,11 @@ const Cryptocurrencies = () => {
 
   if (!filter) {
     filteredCryptoCurrencies = cryptoCurrencies;
+  } else {
+    filteredCryptoCurrencies = cryptoCurrencies.filter(
+      (crypto) => crypto.name.toLowerCase().includes(filter.toLowerCase())
+        || crypto.symbol.toLowerCase().includes(filter.toLowerCase()),
+    );
   }
 
   if (loading || loading === null || loading === undefined) {
