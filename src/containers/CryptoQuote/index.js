@@ -16,7 +16,6 @@ import {
   faReddit,
 } from '@fortawesome/free-brands-svg-icons';
 import createDOMPurify from 'dompurify';
-import { JSDOM } from 'jsdom';
 import { getCryptocurrencyQuoteAsync } from '../../redux/cryptoQuotesSlice';
 
 import styles from './CryptoQuote.module.css';
@@ -24,9 +23,6 @@ import mainStyles from '../../index.module.css';
 import ErrorAlert from '../../components/Error';
 
 const CryptoQuote = () => {
-  // const [cryptoQuote, setCryptoQuote] = useState(null);
-  const { window } = new JSDOM('');
-  const DOMPurify = createDOMPurify(window);
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -59,11 +55,7 @@ const CryptoQuote = () => {
         <div className={styles.cryptoQuote}>
           <div className={styles.cryptoQuote__description}>
             <p>
-              <span
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(cryptoQuote.description.en),
-                }}
-              />
+              <span>{cryptoQuote.description.en}</span>
             </p>
           </div>
           <div className={styles.cryptoQuote__Card}>
