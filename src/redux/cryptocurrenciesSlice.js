@@ -9,6 +9,7 @@ import { allCryptosURL } from '../constants/APIEndPoints';
 const initialState = {
   loading: false,
   cryptoCurrencies: [],
+  filter: 'All',
 };
 
 export const getCryptocurrenciesAsync = createAsyncThunk(
@@ -23,6 +24,11 @@ export const getCryptocurrenciesAsync = createAsyncThunk(
 const cryptocurrenciesSlice = createSlice({
   name: 'cryptocurrencies',
   initialState,
+  reducers: {
+    CHANGE_FILTER: (state, action) => ({
+      filter: action.payload,
+    }),
+  },
   extraReducers: {
     [getCryptocurrenciesAsync.pending]: (state, action) => {
       state.loading = true;
@@ -36,3 +42,4 @@ const cryptocurrenciesSlice = createSlice({
 });
 
 export default cryptocurrenciesSlice.reducer;
+export const { CHANGE_FILTER } = cryptocurrenciesSlice.actions;

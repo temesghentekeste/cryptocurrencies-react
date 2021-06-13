@@ -9,13 +9,21 @@ import CryptoCurrency from '../../components/CryotoCurrency';
 
 const Cryptocurrencies = () => {
   const dispatch = useDispatch();
-  const { loading, cryptoCurrencies } = useSelector(
+  const { loading, cryptoCurrencies, filter } = useSelector(
     (state) => state.cryptocurrencies,
   );
+
+  console.log(filter);
+
+  let filteredCryptoCurrencies;
 
   useEffect(() => {
     dispatch(getCryptocurrenciesAsync());
   }, [dispatch]);
+
+  if (filter === 'All') {
+    filteredCryptoCurrencies = cryptoCurrencies;
+  }
 
   if (loading || loading === null || loading === undefined) {
     return <WaveLoading />;
@@ -26,8 +34,8 @@ const Cryptocurrencies = () => {
       className={styles.availableCryptocurrencies}
       data-testid="cryptocurrencies"
     >
-      {cryptoCurrencies
-        && cryptoCurrencies.map((crypto) => {
+      {filteredCryptoCurrencies
+        && filteredCryptoCurrencies.map((crypto) => {
           const {
             id, symbol, name, current_price: price, image,
           } = crypto;
