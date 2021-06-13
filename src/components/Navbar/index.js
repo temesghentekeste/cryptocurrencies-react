@@ -9,8 +9,8 @@ import { CHANGE_FILTER } from '../../redux/cryptocurrenciesSlice';
 const Navbar = () => {
   console.log('Navbar...');
 
-  const [input, setinput] = useState('All');
-  const { filter } = useSelector((state) => state.cryptocurrencies);
+  const [input, setinput] = useState('');
+  //   const { filter } = useSelector((state) => state.cryptocurrencies);
   const dispatch = useDispatch();
 
   useEffect(() => {

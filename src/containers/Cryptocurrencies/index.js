@@ -20,7 +20,7 @@ const Cryptocurrencies = () => {
     dispatch(getCryptocurrenciesAsync());
   }, [dispatch]);
 
-  if (filter === 'All' || !filter) {
+  if (!filter) {
     filteredCryptoCurrencies = cryptoCurrencies;
   }
 

@@ -9,7 +9,7 @@ import { allCryptosURL } from '../constants/APIEndPoints';
 const initialState = {
   loading: false,
   cryptoCurrencies: [],
-  filter: 'All',
+  filter: '',
 };
 
 export const getCryptocurrenciesAsync = createAsyncThunk(
